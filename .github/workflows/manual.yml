@@ -1,0 +1,12 @@
+name: 06basic
+run-name: ${{ github.actor }} - ${{ github.run_number }}
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy context
+        run: echo ("hello mohamed")
+        

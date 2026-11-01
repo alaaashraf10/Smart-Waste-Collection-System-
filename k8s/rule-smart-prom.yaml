@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: smart-bins-alerts
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  groups:
+  - name: smart-bins-alerts
+    rules:
+    - alert: BackendDown
+      expr: up{namespace="smart-bins"} == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Smart Bins pod is down"
+        description: "One of the pods is not running"

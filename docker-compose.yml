@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    networks:
+      - smartbins_network
+
+  mysql:
+    image: mysql:8.0
+    env_file:
+      - .env
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./backend/Database/smart_bins_system.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - smartbins_network
+
+volumes:
+  mysqldata:
+
+networks:
+  smartbins_network:
+    driver: bridge

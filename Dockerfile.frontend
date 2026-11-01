@@ -1,0 +1,8 @@
+FROM nginx:alpine
+
+COPY backend/api_front/ /usr/share/nginx/html/
+COPY frontend/CSS/ /usr/share/nginx/html/CSS/
+COPY frontend/CSS/ /usr/share/nginx/html/GraduationProject/CSS/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80

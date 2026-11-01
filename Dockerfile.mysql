@@ -1,0 +1,4 @@
+FROM mysql:8.0
+COPY backend/Database/smart_bins_system.sql /docker-entrypoint-initdb.d/init.sql
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=smart_bins_system

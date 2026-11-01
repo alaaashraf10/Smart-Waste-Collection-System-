@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# لو الملف موجود فعلاً، استخدمه
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Backend API requests
+RewriteRule ^api/(.*)$ backend/API.php [QSA,L]
+RewriteRule ^auth/(.*)$ backend/auth.php [QSA,L]

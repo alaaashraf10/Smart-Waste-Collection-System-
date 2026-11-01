@@ -1,0 +1,15 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+/k8s/secret.yaml
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Dependencies / generated files
+node_modules/
+__pycache__/
+*.py[cod]
